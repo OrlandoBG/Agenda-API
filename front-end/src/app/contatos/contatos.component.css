@@ -2,6 +2,10 @@
     width: 100%;
 }
 
-#contato-form{
-    margin-top: 22px;
+.half-width{
+    width: 50%;
+}
+
+.tab-container{
+    margin-left: 10px;
 }
