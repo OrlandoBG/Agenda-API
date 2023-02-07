@@ -9,6 +9,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card'
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,12 +17,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContatosService } from './contatos.service';
 import { ContatosComponent } from './contatos/contatos.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContatoDetalheComponent } from './contato-detalhe/contato-detalhe.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContatosComponent
+    ContatosComponent,
+    ContatoDetalheComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MatButtonModule,
     MatInputModule,
+    MatDialogModule,
     MatCardModule,
     MatToolbarModule,
     MatTabsModule,

@@ -13,6 +13,20 @@
             <mat-card>
                 <table mat-table [dataSource]="contatos">
 
+                    <ng-container matColumnDef="foto">
+                        <th mar-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let contato">
+                            <div *ngIf="contato.foto">
+                                <img (click)="visualizarContato(contato)"
+                                width="75px" height="75px" src="data:image/jpg;base64,{{ contato.foto }}" />
+                            </div>
+                            <div *ngIf="!contato.foto">
+                                <input type="file" name="foto" (change)="uploadFoto($event, contato)">
+                            </div>
+                            
+                        </td>
+                    </ng-container>
+
                     <ng-container matColumnDef="id">
                         <th mar-header-cell *matHeaderCellDef>ID</th>
                         <td mat-cell *matCellDef="let contato">{{contato.id}}</td>
