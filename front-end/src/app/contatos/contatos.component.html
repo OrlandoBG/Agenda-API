@@ -55,6 +55,12 @@
                       <tr mat-row *matRowDef="let myRowData; columns: colunas"></tr>
 
                 </table>
+                <mat-paginator [length]="totalElementos"
+                               [pageSize]="tamanho"
+                               [pageSizeOptions]="pageSizeOptions"
+                               (page)="paginar($event)">
+
+                </mat-paginator>
             </mat-card>
         </mat-tab>
         <mat-tab>
@@ -64,6 +70,9 @@
             </ng-template>
             <mat-card class="half-width">
                 <mat-card-title>Novo Contato</mat-card-title>
+                <div *ngFor="let erro of errors">
+                    {{erro}} inválido !
+                </div>
                 <form  [formGroup]="formulario" (ngSubmit)="submit()">
                     <mat-form-field class="full-width" >
                         <mat-label>Nome: </mat-label>

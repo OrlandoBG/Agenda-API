@@ -1,12 +1,8 @@
 package io.github.OrlandoBG.agendaapi;
 
-import io.github.OrlandoBG.agendaapi.model.entity.Contato;
-import io.github.OrlandoBG.agendaapi.model.repository.ContatoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+
 
 @SpringBootApplication
 public class AgendaApiApplication {

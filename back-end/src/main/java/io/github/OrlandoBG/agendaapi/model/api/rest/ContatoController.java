@@ -4,12 +4,16 @@ import io.github.OrlandoBG.agendaapi.model.entity.Contato;
 import io.github.OrlandoBG.agendaapi.model.repository.ContatoRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,8 +39,11 @@ public class ContatoController {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    public List<Contato> list(){
-        return repository.findAll();
+    public Page<Contato> page(@RequestParam(value="page",defaultValue="0") Integer pagina,
+                              @RequestParam(value="size",defaultValue="10") Integer tamanhoPagina){
+        Sort sort = Sort.by(Sort.Direction.ASC, "nome");
+        PageRequest pageRequest = PageRequest.of(pagina, tamanhoPagina, sort);
+        return repository.findAll(pageRequest);
     }
 
     @PatchMapping("{id}/favorito")
